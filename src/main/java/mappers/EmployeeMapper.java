@@ -1,10 +1,7 @@
 package mappers;
 
-import com.avinty.hr.dto.DepartmentDto;
 import com.avinty.hr.dto.EmployeeDto;
-import com.avinty.hr.entity.DepartmentEntity;
 import com.avinty.hr.entity.EmployeeEntity;
-
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
