@@ -13,6 +13,10 @@ public class MyUserPrincipal implements UserDetails {
     private long id;
     private boolean enabled;
 
+    public MyUserPrincipal() {
+        //
+    }
+
     public MyUserPrincipal(EmployeeEntity userEntity) {
         user = userEntity.getEmail();
         id = userEntity.getId();
@@ -61,5 +65,25 @@ public class MyUserPrincipal implements UserDetails {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }

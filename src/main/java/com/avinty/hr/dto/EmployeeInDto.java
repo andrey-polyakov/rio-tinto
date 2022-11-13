@@ -19,5 +19,5 @@ public class EmployeeInDto extends BaseDto {
 
     private String fullName;
 
-    private long departmentId;
+    private Long departmentId;
 }

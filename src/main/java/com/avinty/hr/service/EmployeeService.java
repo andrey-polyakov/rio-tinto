@@ -37,7 +37,11 @@ public class EmployeeService {
         final EmployeeEntity employee = EmployeeMapper.INSTANCE.dtoToEntity(employeeDto);
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Optional<DepartmentEntity> department = departmentRepo.findById(employeeDto.getDepartmentId());
-        department.ifPresentOrElse(d -> employee.setDepartment(d), () -> { throw new DepartmentNotFoundException(); });
+        if (employeeDto.getDepartmentId() != null) {
+            department.ifPresentOrElse(d -> employee.setDepartment(d), () -> {
+                throw new DepartmentNotFoundException();
+            });
+        }
         employee.setUpdatedBy(((MyUserPrincipal) authentication.getPrincipal()).getId());
         return employeeRepo.saveAndFlush(employee);
     }

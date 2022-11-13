@@ -10,6 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,7 +28,6 @@ public class HrController {
     @Autowired
     EmployeeService employeeService;
 
-    @Secured("ROLE_USER")
     @GetMapping("/employees")
     public ResponseEntity<List<EmployeeDto>> findAllEmployees() {
         return ResponseEntity.ok(employeeService.findAllEmployees());
@@ -38,7 +39,7 @@ public class HrController {
         return ResponseEntity.ok(departmentService.getDepartmentsWithEmployees());
     }
 
-    @Secured("ROLE_ADMIN")
+
     @PostMapping("/employees")
     public ResponseEntity<EmployeeDto> create(@RequestBody final EmployeeInDto employeeEntity) {
         final EmployeeEntity employee = employeeService.create(employeeEntity);

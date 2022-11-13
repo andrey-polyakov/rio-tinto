@@ -14,9 +14,6 @@ public class EmployeeDto extends BaseDto {
 
     private String email;
 
-    @JsonIgnore
-    private String password;
-
     private String fullName;
 
     private DepartmentDto department;
