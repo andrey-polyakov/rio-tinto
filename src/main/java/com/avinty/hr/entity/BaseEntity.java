@@ -32,5 +32,5 @@ public abstract class BaseEntity implements Serializable {
     protected LocalDateTime updatedAt;
 
     @Column(name = "updated_by")
-    protected Integer updatedBy;
+    protected Long updatedBy;
 }

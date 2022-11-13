@@ -5,13 +5,15 @@ import com.avinty.hr.dto.EmployeeDto;
 import com.avinty.hr.entity.EmployeeEntity;
 import com.avinty.hr.service.DepartmentService;
 import com.avinty.hr.service.EmployeeService;
-import com.google.gson.Gson;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @CrossOrigin(origins = "http://localhost:5000", maxAge = 3600)
 @RestController
 @RequestMapping("api/v1")
@@ -23,16 +25,19 @@ public class HrController {
     @Autowired
     EmployeeService employeeService;
 
+    @Secured("ROLE_USER")
     @GetMapping("/employees")
     public ResponseEntity<List<EmployeeDto>> findAllEmployees() {
         return ResponseEntity.ok(employeeService.findAllEmployees());
     }
 
+    @Secured("ROLE_USER")
     @GetMapping("/dep-emp")
     public ResponseEntity<List<DepartmentDto>> getDepartmentsWithEmployees() {
         return ResponseEntity.ok(departmentService.getDepartmentsWithEmployees());
     }
 
+    @Secured("ROLE_ADMIN")
     @PostMapping("/employees")
     public ResponseEntity<EmployeeDto> create(final EmployeeDto employeeEntity) {
         final EmployeeEntity employee = employeeService.create(employeeEntity);
@@ -43,6 +48,7 @@ public class HrController {
         }
     }
 
+    @Secured("ROLE_ADMIN")
     @DeleteMapping("/department/{id}")
     public ResponseEntity<Object> delete(@PathVariable Integer id) {
         departmentService.delete(id);

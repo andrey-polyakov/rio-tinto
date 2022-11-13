@@ -28,4 +28,7 @@ public class EmployeeEntity extends BaseEntity {
     @JoinColumn(name = "dep_id")
     private DepartmentEntity department;
 
+    @Column(name = "is_active", nullable = false)
+    private Boolean active;
+
 }

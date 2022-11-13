@@ -7,9 +7,8 @@ spring:
     password:
     driverClassName: org.h2.Driver
 
-
   jpa:
-    defer-datasource-initialization: true
+    defer-datasource-initialization: false
 
   h2:
     console:
@@ -19,4 +18,3 @@ spring:
 
   liquibase:
     changeLog: classpath:db/changelog/db.changelog-master.yaml
-    enabled: false

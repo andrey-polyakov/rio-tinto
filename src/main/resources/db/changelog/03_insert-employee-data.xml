@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+  <changeSet id="3" author="zorro">
+    <comment>Inserting employees</comment>
+    <insert tableName="employees">
+      <column name="id" valueNumeric="1"/>
+      <column name="dep_id" valueNumeric="1"/>
+      <column name="email" value="admin@test.com"/>
+      <column name="full_name" value="Charles Darwin"/>
+      <column name="password" value="$2a$10$aVIG9sA1jXC1XaBOrqrdcedhtTSTn5qhPuBvZaM8wESQk4n1r.LIW"/>
+      <column name="created_by" value="1"/>
+    </insert>
+    <insert tableName="employees">
+      <column name="id" valueNumeric="2"/>
+      <column name="dep_id" valueNumeric="2"/>
+      <column name="email" value="sales@test.com"/>
+      <column name="full_name" value="John Dow"/>
+      <column name="password" value="$2a$10$aVIG9sA1jXC1XaBOrqrdcedhtTSTn5qhPuBvZaM8wESQk4n1r.LIW"/>
+      <column name="created_by" value="1"/>
+    </insert>
+  </changeSet>
+</databaseChangeLog>

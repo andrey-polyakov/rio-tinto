@@ -19,5 +19,4 @@ public class DepartmentDto extends BaseDto{
 
     private Integer managerId;
 
-    private List<EmployeeDto> employees;
 }

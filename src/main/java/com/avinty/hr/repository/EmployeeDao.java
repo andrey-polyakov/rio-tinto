@@ -10,5 +10,7 @@ import java.util.List;
 @Repository
 public interface EmployeeDao extends JpaRepository<EmployeeEntity, Integer>, JpaSpecificationExecutor<EmployeeEntity> {
 
-    public List<EmployeeEntity> findAllByOrderByFullNameAsc();
+    List<EmployeeEntity> findAllByOrderByFullNameAsc();
+
+    EmployeeEntity findByEmail(String email);
 }

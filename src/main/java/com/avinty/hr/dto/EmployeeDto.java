@@ -19,4 +19,5 @@ public class EmployeeDto extends BaseDto{
 
     private String fullName;
 
+    private DepartmentDto department;
 }
