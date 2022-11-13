@@ -10,7 +10,7 @@ import net.minidev.json.annotate.JsonIgnore;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class EmployeeDto extends BaseDto{
+public class EmployeeDto extends BaseDto {
 
     private String email;
 

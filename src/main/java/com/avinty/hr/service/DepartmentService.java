@@ -2,7 +2,7 @@ package com.avinty.hr.service;
 
 import com.avinty.hr.dto.DepartmentDto;
 import com.avinty.hr.exceptions.DepartmentNotFoundException;
-import com.avinty.hr.repository.DepartmentDao;
+import com.avinty.hr.repository.DepartmentRepository;
 import mappers.DepartmentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,8 +14,7 @@ import java.util.List;
 @Transactional
 public class DepartmentService {
 
-    @Autowired
-    DepartmentDao departmentDao;
+    @Autowired DepartmentRepository departmentDao;
 
     public List<DepartmentDto> getDepartmentsWithEmployees(){
         return DepartmentMapper.INSTANCE.entityToDto(departmentDao.findAll());
@@ -25,7 +24,7 @@ public class DepartmentService {
         return DepartmentMapper.INSTANCE.entityToDto(departmentDao.findByName(name).orElseThrow(()-> new DepartmentNotFoundException()));
     }
 
-    public void delete(final int id){
+    public void delete(final long id){
         departmentDao.deleteById(id);
     }
 

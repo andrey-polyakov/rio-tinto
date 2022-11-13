@@ -18,3 +18,7 @@ spring:
 
   liquibase:
     changeLog: classpath:db/changelog/db.changelog-master.yaml
+
+app:
+  jwt:
+    secret: abcdefghijklmnOPQRSTUVWXYZ

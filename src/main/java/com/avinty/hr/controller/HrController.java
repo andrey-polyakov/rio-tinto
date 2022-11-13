@@ -2,6 +2,7 @@ package com.avinty.hr.controller;
 
 import com.avinty.hr.dto.DepartmentDto;
 import com.avinty.hr.dto.EmployeeDto;
+import com.avinty.hr.dto.EmployeeInDto;
 import com.avinty.hr.entity.EmployeeEntity;
 import com.avinty.hr.service.DepartmentService;
 import com.avinty.hr.service.EmployeeService;
@@ -39,7 +40,7 @@ public class HrController {
 
     @Secured("ROLE_ADMIN")
     @PostMapping("/employees")
-    public ResponseEntity<EmployeeDto> create(final EmployeeDto employeeEntity) {
+    public ResponseEntity<EmployeeDto> create(@RequestBody final EmployeeInDto employeeEntity) {
         final EmployeeEntity employee = employeeService.create(employeeEntity);
         if (employee == null) {
             return ResponseEntity.notFound().build();
