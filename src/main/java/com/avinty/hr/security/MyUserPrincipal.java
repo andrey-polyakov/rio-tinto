@@ -2,14 +2,18 @@ package com.avinty.hr.security;
 
 import com.avinty.hr.entity.EmployeeEntity;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.stream.Collectors;
 
 public class MyUserPrincipal implements UserDetails {
     private String user;
     private String pass;
+    private String claims;
     private long id;
     private boolean enabled;
 
@@ -22,11 +26,15 @@ public class MyUserPrincipal implements UserDetails {
         id = userEntity.getId();
         pass = userEntity.getPassword();
         enabled = userEntity.getActive();
+        claims = userEntity.getClaims();
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.EMPTY_LIST;
+        if (claims == null) {
+            return Collections.EMPTY_LIST;
+        }
+        return Arrays.stream(claims.split(";")).map(x -> new SimpleGrantedAuthority(x)).collect(Collectors.toSet());
     }
 
     @Override

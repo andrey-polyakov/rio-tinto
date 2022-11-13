@@ -17,7 +17,7 @@
       <column name="full_name" type="varchar(255)">
         <constraints nullable="false"/>
       </column>
-      <column name="password" type="varchar(255)">
+      <column name="password" type="varchar(64)">
         <constraints nullable="false"/>
       </column>
       <column name="dep_id" type="int">

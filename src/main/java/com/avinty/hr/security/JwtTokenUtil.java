@@ -17,7 +17,8 @@ public class JwtTokenUtil {
 
     public String generateAccessToken(MyUserPrincipal user) {
         return Jwts.builder()
-                .setSubject(String.valueOf(user.getId()))
+                .setSubject(user.getUsername())
+                .setId(String.valueOf(user.getId()))
                 .setIssuer("Ed Snowden")
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRE_DURATION))

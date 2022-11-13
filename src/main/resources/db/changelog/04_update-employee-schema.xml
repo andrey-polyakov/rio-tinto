@@ -9,8 +9,12 @@
   <changeSet id="4" author="zorro" >
     <addColumn tableName="employees" >
       <column name="is_active" type="boolean" defaultValue="true">
+
       <constraints nullable="false" />
-    </column>
+      </column>
+      <column name="claims" type="varchar(64)" defaultValue="USER">
+
+      </column>
 
   </addColumn>
   </changeSet>

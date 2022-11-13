@@ -31,4 +31,8 @@ public class EmployeeEntity extends BaseEntity {
     @Column(name = "is_active", nullable = false)
     private Boolean active;
 
+    @Column(name = "claims")
+    private String claims;
+
+
 }
