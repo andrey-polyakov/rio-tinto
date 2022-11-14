@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "18b52590-33f7-42e0-801a-7d1892d845ff",
+		"name": "HR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "JWT Authentication",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.567654.M3TYPX9Qy6KcOR_RSAh_Q0pL8g8Pb5NRXLvCo6omigk6LFSPAIWtRa4hY3tgEFK7lFNJuKIDcBuZnYKyEWYVVQ",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@test.com\",\r\n    \"password\": \"admin010101\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New employee",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "D83CF24B702E8A466EF6C789D8ACDFA4",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "JSESSIONID",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkB0ZXN0LmNvbSIsInJvbGVzIjoiUk9MRV9BRE1JTjtST0xFX1VTRVIiLCJpYXQiOjE2NjgzOTU2MTYsImV4cCI6MTc1NDc5NTYxNn0.j4QOFt6icxPeQFbcN2C5KfMXFa5N2n7sB1Wh2zK3wpo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"email\": \"andy@test.com\",\r\n        \"password\": \"rioRio\",\r\n        \"fullName\": \"Don Antuan\",\r\n        \"departmentId\": 1,\r\n        \"active\": \"true\",\r\n        \"roles\": \"USER\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8085/api/v1/employees",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Departments + Employees",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkB0ZXN0LmNvbSIsInJvbGVzIjoiUk9MRV9BRE1JTjtST0xFX1VTRVIiLCJpYXQiOjE2NjgzOTU2MTYsImV4cCI6MTc1NDc5NTYxNn0.j4QOFt6icxPeQFbcN2C5KfMXFa5N2n7sB1Wh2zK3wpo",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8085/api/v1/dep-emp",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"dep-emp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Employees",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkB0ZXN0LmNvbSIsInJvbGVzIjoiUk9MRV9BRE1JTjtST0xFX1VTRVIiLCJpYXQiOjE2NjgzOTU2MTYsImV4cCI6MTc1NDc5NTYxNn0.j4QOFt6icxPeQFbcN2C5KfMXFa5N2n7sB1Wh2zK3wpo",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8085/api/v1/employees",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Employees",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkB0ZXN0LmNvbSIsInJvbGVzIjoiUk9MRV9BRE1JTjtST0xFX1VTRVIiLCJpYXQiOjE2Njg0MDM5MTgsImV4cCI6MTc1NDgwMzkxOH0.qY7aqEPJkKYt9_-A7MkrNjtE4Ai2qpV-xdkW1Xk4h_w",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8085/api/v1/department/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"department",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
