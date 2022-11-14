@@ -8,14 +8,12 @@
 
   <changeSet id="2" author="zorro">
     <insert tableName="DEPARTMENTS">
-      <column name="id" valueNumeric="1"/>
       <column name="name" value="IT department"/>
       <column name="manager_id" valueNumeric="1"/>
       <column name="created_by" value="1"/>
     </insert>
 
     <insert tableName="DEPARTMENTS">
-      <column name="id" valueNumeric="2"/>
       <column name="name" value="Sales department"/>
       <column name="manager_id" valueNumeric="2"/>
       <column name="created_by" value="1"/>

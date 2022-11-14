@@ -6,6 +6,7 @@ import com.avinty.hr.security.JwtTokenUtil;
 import com.avinty.hr.service.DepartmentService;
 import com.avinty.hr.service.EmployeeService;
 import lombok.extern.slf4j.Slf4j;
+import mappers.EmployeeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -57,7 +58,7 @@ public class HrController {
         if (employee == null) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok(EmployeeMapper.INSTANCE.entityToDto(employee));
         }
     }
 

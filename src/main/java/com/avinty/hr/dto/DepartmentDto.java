@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class DepartmentDto extends BaseDto{
+public class DepartmentDto extends BaseDto {
 
     private String name;
 
