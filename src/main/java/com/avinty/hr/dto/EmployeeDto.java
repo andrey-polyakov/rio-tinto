@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import net.minidev.json.annotate.JsonIgnore;
 
 @Data
 @AllArgsConstructor
@@ -16,5 +15,6 @@ public class EmployeeDto extends BaseDto {
 
     private String fullName;
 
-    private DepartmentDto department;
+    private Integer depId;
+
 }

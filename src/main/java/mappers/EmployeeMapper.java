@@ -1,7 +1,6 @@
 package mappers;
 
 import com.avinty.hr.dto.EmployeeDto;
-import com.avinty.hr.dto.EmployeeInDto;
 import com.avinty.hr.entity.EmployeeEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -17,6 +16,6 @@ public interface EmployeeMapper {
 
     List<EmployeeDto> entityToDto(List<EmployeeEntity> employeeEntities);
 
-    EmployeeEntity dtoToEntity(EmployeeInDto employeeInDto);
+    EmployeeEntity dtoToEntity(EmployeeDto employeeInDto);
 
 }

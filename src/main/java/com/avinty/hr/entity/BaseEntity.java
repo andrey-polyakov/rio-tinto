@@ -19,18 +19,19 @@ public abstract class BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected long id;
+    @Column(unique = true, nullable = false)
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    protected Integer id;
 
-    @Column(name = "created_at")
+    @Column(name = "created_at", nullable = false)
     protected LocalDateTime createdAt;
 
-    @Column(name = "created_by")
+    @Column(name = "created_by", nullable = false)
     protected Integer createdBy;
 
     @Column(name = "updated_at")
     protected LocalDateTime updatedAt;
 
     @Column(name = "updated_by")
-    protected Long updatedBy;
+    protected Integer updatedBy;
 }

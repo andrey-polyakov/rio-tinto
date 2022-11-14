@@ -22,7 +22,7 @@ public class DepartmentEntity extends BaseEntity {
     @Column(name = "manager_id")
     private Integer managerId;
 
-    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY)
     private List<EmployeeEntity> employees;
 
 }

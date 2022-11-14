@@ -12,10 +12,14 @@
 
       <constraints nullable="false" />
       </column>
-      <column name="claims" type="varchar(64)" defaultValue="USER">
+      <column name="roles" type="varchar(64)" defaultValue="USER">
 
       </column>
 
-  </addColumn>
+    </addColumn>
+    <update tableName="employees">
+      <column name="roles" value="ADMIN;USER" />
+      <where>email = 'admin@test.com'</where>
+    </update>
   </changeSet>
 </databaseChangeLog>

@@ -15,19 +15,21 @@ import java.util.List;
 @Transactional
 public class DepartmentService {
 
-    @Autowired
-    DepartmentRepository departmentDao;
+    @Autowired DepartmentRepository departmentRepository;
+
+    @Autowired EmployeeRepository employeeRepository;
 
     public List<DepartmentDto> getDepartmentsWithEmployees(){
-        return DepartmentMapper.INSTANCE.entityToDto(departmentDao.findAll());
+        return DepartmentMapper.INSTANCE.entityToDto(departmentRepository.findAll());
     }
 
     public DepartmentDto findByName(final String name){
-        return DepartmentMapper.INSTANCE.entityToDto(departmentDao.findByName(name).orElseThrow(()-> new DepartmentNotFoundException()));
+        return DepartmentMapper.INSTANCE.entityToDto(departmentRepository.findByName(name).orElseThrow(()-> new DepartmentNotFoundException(String.format("Failed to find department with name: '%s'.", name))));
     }
 
-    public void delete(final long id){
-        departmentDao.deleteById(id);
+    public void delete(final int id){
+        employeeRepository.setDepIdWhereDepIdEquals(id);
+        departmentRepository.deleteById(id);
     }
 
 }

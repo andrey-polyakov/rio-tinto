@@ -9,7 +9,6 @@
   <changeSet id="3" author="zorro">
     <comment>Inserting employees</comment>
     <insert tableName="employees">
-      <column name="id" valueNumeric="1"/>
       <column name="dep_id" valueNumeric="1"/>
       <column name="email" value="admin@test.com"/>
       <column name="full_name" value="Charles Darwin"/>
@@ -17,7 +16,6 @@
       <column name="created_by" value="1"/>
     </insert>
     <insert tableName="employees">
-      <column name="id" valueNumeric="2"/>
       <column name="dep_id" valueNumeric="2"/>
       <column name="email" value="sales@test.com"/>
       <column name="full_name" value="John Dow"/>

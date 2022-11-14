@@ -5,7 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.Table;
 
 @Getter
 @Setter
@@ -24,15 +27,13 @@ public class EmployeeEntity extends BaseEntity {
     @Column(name = "full_name", length = 200, nullable = false)
     private String fullName;
 
-    @ManyToOne(fetch= FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "dep_id")
-    private DepartmentEntity department;
+    private Integer depId;
 
     @Column(name = "is_active", nullable = false)
     private Boolean active;
 
-    @Column(name = "claims")
-    private String claims;
-
+    @Column
+    private String roles;
 
 }

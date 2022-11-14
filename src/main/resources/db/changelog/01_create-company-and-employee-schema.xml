@@ -30,7 +30,7 @@
         <constraints nullable="false"/>
       </column>
       <column name="updated_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
-        <constraints nullable="false"/>
+        <constraints nullable="true"/>
       </column>
       <column name="updated_by" type="int">
         <constraints nullable="true"/>
@@ -41,7 +41,7 @@
 
     <createTable tableName="DEPARTMENTS">
       <column name="id" type="int" autoIncrement="true">
-        <constraints nullable="false" primaryKey="true"/>
+        <constraints nullable="false" unique="true" primaryKey="true"/>
       </column>
       <column name="name" type="varchar(100)">
         <constraints nullable="false"/>
@@ -57,15 +57,27 @@
         <constraints nullable="false"/>
       </column>
       <column name="updated_at"  type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
-        <constraints nullable="false"/>
+        <constraints nullable="true"/>
       </column>
       <column name="updated_by" type="int">
         <constraints nullable="true"/>
       </column>
     </createTable>
 
-    <addForeignKeyConstraint baseTableName="EMPLOYEES" baseColumnNames="dep_id"
-      constraintName="employee_fk"
-      referencedTableName="DEPARTMENTS" referencedColumnNames="id"/>
+
+
+    <createTable tableName="DEPARTMENTS_EMPLOYEES">
+      <column name="id" type="int" autoIncrement="true">
+        <constraints nullable="false" unique="true" primaryKey="true"/>
+      </column>
+      <column name="employees_id" type="int">
+        <constraints nullable="false" unique="true"/>
+      </column>
+      <column name="department_entity_id" type="int">
+        <constraints nullable="false"/>
+      </column>
+
+    </createTable>
   </changeSet>
+
 </databaseChangeLog>

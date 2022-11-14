@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class BaseDto implements Serializable {
 
-    protected int id;
+    protected Integer id;
 
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     protected LocalDateTime createdAt;
